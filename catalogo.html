@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Industrias Marzzelli</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.15) !important; }
+        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
+        .chat-btn:hover { transform: scale(1.05); color: white; }
+    </style>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Navegación unificada -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">MARZZELLI CUEROS</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto gap-3">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-semibold" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido del Catálogo -->
+    <main class="container py-5 my-auto">
+        <div class="text-center mb-5">
+            <h6 class="text-warning fw-bold text-uppercase">Nuestra Oferta</h6>
+            <h1 class="fw-bold display-5" style="color: #5c4033;">Catálogo General de Productos</h1>
+            <p class="text-secondary lead">Conoce nuestra línea completa de artículos elaborados en auténtico cuero de res.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Producto 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Casaca+Clasica+Biker" class="card-img-top" alt="Casaca Biker">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Casaca Biker de Cuero</h5>
+                        <p class="card-text text-secondary">Estilo clásico urbano con cierres metálicos reforzados y acabado napa.</p>
+                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Casaca+Ejecutiva" class="card-img-top" alt="Casaca Ejecutiva">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Casaca Ejecutiva Formal</h5>
+                        <p class="card-text text-secondary">Diseño sobrio y elegante ideal para caballeros con cuello camisero.</p>
+                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Botines+Seguridad" class="card-img-top" alt="Botines">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Botines de Seguridad Die Eléctricos</h5>
+                        <p class="card-text text-secondary">Calzado industrial con punta de acero certificado para minería e industria.</p>
+                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 4 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Maletin+Ejecutivo" class="card-img-top" alt="Maletin">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Maletín Porta-Laptop</h5>
+                        <p class="card-text text-secondary">Maletín ejecutivo de cuero graneado con compartimentos internos acolchados.</p>
+                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 5 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Billeteras+Piel" class="card-img-top" alt="Billeteras">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Billeteras con Tarjetero</h5>
+                        <p class="card-text text-secondary">Marroquinería fina con protección RFID y múltiples ranuras para tarjetas.</p>
+                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 6 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0 card-hover">
+                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Correas+Reversibles" class="card-img-top" alt="Correas">
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title fw-bold">Correas de Cuero Genuino</h5>
+                        <p class="card-text text-secondary">Correas resistentes con hebilla de acero inoxidable de alta duración.</p>
+                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Unificado -->
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row gy-4 mb-4">
+                <div class="col-md-4 pe-md-5">
+                    <h5 class="fw-bold text-warning mb-3">MARZZELLI CUEROS</h5>
+                    <p class="text-light">Fabricantes directos de artículos de cuero genuino en el Parque Industrial de Villa El Salvador.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3 text-white">Accesos Directos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="nosotros.html" class="text-light text-decoration-none">Nosotros</a></li>
+                        <li class="mb-2"><a href="catalogo.html" class="text-light text-decoration-none">Catálogo</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3 text-white">Sede Central</h5>
+                    <ul class="list-unstyled text-light">
+                        <li class="mb-2">📍 Parque Industrial, Villa El Salvador - Lima</li>
+                        <li class="mb-2">📞 +51 999 999 999</li>
+                        <li class="mb-2">✉️ ventas@marzzelli.com.pe</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center border-top border-secondary pt-4 mt-4">
+                <p class="mb-0 text-light small">© 2026 Industrias Marzzelli - Perú Cueros E.I.R.L. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/51999999999" target="_blank" class="chat-btn">💬 Asesoría por WhatsApp</a>
+</body>
+</html>
