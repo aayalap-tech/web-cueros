@@ -3,25 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Industrias Marzzelli</title>
+    <title>Contacto - Mazzelli Cueros</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
-        .chat-btn:hover { transform: scale(1.05); color: white; }
+        :root {
+            --bg-carbon-1: #1E2024;
+            --bg-carbon-2: #282B30;
+            --bg-card: #32363D;
+            --bg-card-hover: #3B4048;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --border-wine: rgba(200, 50, 68, 0.4);
+            
+            --text-ivory: #F5F3EF;
+            --text-body: #E5E7EB;
+            --text-muted: #9CA3AF;
+            
+            --wine-vibrant: #C83244;
+            --wine-solid: #9E2433;
+            --wine-dark: #8B1E2B;
+        }
+
+        body {
+            background-color: var(--bg-carbon-1);
+            color: var(--text-body);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, .font-serif, .navbar-brand {
+            font-family: 'Playfair Display', serif !important;
+            color: var(--text-ivory) !important;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: rgba(30, 32, 36, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .brand-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-ivory) !important;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .brand-accent {
+            color: var(--wine-vibrant) !important;
+        }
+        .nav-link {
+            color: var(--text-body) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--wine-vibrant) !important;
+        }
+
+        /* Badges & Accents */
+        .badge-wine {
+            background-color: var(--wine-solid);
+            color: #FFFFFF !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: 1px solid var(--wine-vibrant);
+            display: inline-block;
+        }
+
+        /* Editorial Cards */
+        .card-editorial {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Form Inputs */
+        .form-control-custom {
+            background-color: var(--bg-carbon-2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #FFFFFF !important;
+            border-radius: 4px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+        }
+        .form-control-custom:focus {
+            background-color: #212327;
+            border-color: var(--wine-vibrant);
+            color: #FFFFFF !important;
+            box-shadow: 0 0 0 0.25rem rgba(200, 50, 68, 0.25);
+        }
+        .form-control-custom::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Buttons */
+        .btn-wine {
+            background-color: var(--wine-solid) !important;
+            color: #FFFFFF !important;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            border-radius: 4px;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-wine:hover {
+            background-color: var(--wine-dark) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 6px 20px rgba(158, 36, 51, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--wine-solid);
+            color: #FFFFFF !important;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .chat-btn:hover {
+            background: var(--wine-dark);
+            transform: scale(1.05);
+            color: #FFFFFF !important;
+        }
+
+        footer {
+            background-color: #16181B;
+            border-top: 1px solid var(--border-subtle);
+        }
+        footer a {
+            color: var(--text-body) !important;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--wine-vibrant) !important;
+        }
     </style>
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Navegación unificada -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">MARZZELLI CUEROS</a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand brand-title" href="index.html">
+                Mazzelli <span class="brand-accent">Cueros</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto gap-3">
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="catalogo.html">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-semibold" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -31,87 +196,96 @@
     <main class="container py-5 my-auto">
         <div class="row justify-content-center">
             <div class="col-md-8 text-center mb-5">
-                <h6 class="text-warning fw-bold text-uppercase">Comunícate con Nosotros</h6>
-                <h1 class="fw-bold display-5" style="color: #5c4033;">Cotizaciones y Pedidos Corporativos</h1>
-                <p class="text-secondary lead">Déjanos tus datos y nos pondremos en contacto contigo a la brevedad para atender tus requerimientos al por mayor y menor.</p>
+                <span class="badge-wine mb-2">Atención & Cotizaciones</span>
+                <h1 class="fw-bold display-5" style="color: var(--text-ivory);">Pedidos y Consultas Corporativas</h1>
+                <p class="lead" style="color: var(--text-body);">
+                    Escríbenos directamente para cotizaciones al por mayor o requerimientos especiales en carteras, mochilas, calzado, correas, billeteras, morrales y monederos.
+                </p>
             </div>
         </div>
 
         <div class="row g-5 justify-content-center">
             <!-- Formulario -->
-            <div class="col-md-6">
-                <div class="bg-white p-4 p-md-5 rounded shadow-sm border">
+            <div class="col-lg-6">
+                <div class="card-editorial p-4 p-md-5 shadow-lg">
+                    <h3 class="fw-bold mb-4" style="color: var(--text-ivory);">Envíanos un Mensaje</h3>
                     <form>
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Nombre o Razón Social</label>
-                            <input type="text" class="form-control" placeholder="Ej. Corporación S.A.C. o Nombre">
+                            <label class="form-label fw-semibold" style="color: var(--text-ivory);">Nombre o Razón Social</label>
+                            <input type="text" class="form-control form-control-custom" placeholder="Ej. Juan Pérez o Empresa S.A.C.">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Correo Electrónico</label>
-                            <input type="email" class="form-control" placeholder="correo@empresa.com">
+                            <label class="form-label fw-semibold" style="color: var(--text-ivory);">Correo Electrónico</label>
+                            <input type="email" class="form-control form-control-custom" placeholder="correo@ejemplo.com">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Teléfono / Celular</label>
-                            <input type="tel" class="form-control" placeholder="+51 999 999 999">
+                            <label class="form-label fw-semibold" style="color: var(--text-ivory);">Teléfono / Celular</label>
+                            <input type="tel" class="form-control form-control-custom" placeholder="+51 999 999 999">
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Mensaje o Requerimiento</label>
-                            <textarea class="form-control" rows="4" placeholder="Indica el producto de interés y la cantidad..."></textarea>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold" style="color: var(--text-ivory);">Mensaje o Requerimiento</label>
+                            <textarea class="form-control form-control-custom" rows="4" placeholder="Indica los artículos de interés (carteras, mochilas, calzado, etc.) y la cantidad estimada..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-dark w-100 fw-bold py-2">Enviar Solicitud</button>
+                        <button type="submit" class="btn-wine w-100 shadow">Enviar Solicitud</button>
                     </form>
                 </div>
             </div>
 
             <!-- Información de Contacto -->
-            <div class="col-md-4 d-flex flex-column justify-content-between">
-                <div class="bg-white p-4 rounded shadow-sm border mb-4">
-                    <h4 class="fw-bold mb-3" style="color: #5c4033;">Datos de Oficina</h4>
-                    <p class="text-secondary mb-2">📍 <strong>Dirección:</strong> Parque Industrial, Mz. B Lt. 12, Villa El Salvador, Lima - Perú</p>
-                    <p class="text-secondary mb-2">📞 <strong>Teléfono:</strong> +51 999 999 999</p>
-                    <p class="text-secondary mb-2">✉️ <strong>Correo:</strong> ventas@marzzelli.com.pe</p>
-                    <p class="text-secondary mb-0">🕒 <strong>Horario:</strong> Lunes a Sábado de 8:00 AM a 6:00 PM</p>
+            <div class="col-lg-5 d-flex flex-column justify-content-between">
+                <div class="card-editorial p-4 shadow-lg mb-4">
+                    <h3 class="fw-bold mb-4" style="color: var(--text-ivory);">Datos de Oficina</h3>
+                    <p class="mb-3" style="color: var(--text-body);">📍 <strong style="color: var(--text-ivory);">Dirección:</strong> Parque Industrial, Villa El Salvador, Lima - Perú</p>
+                    <p class="mb-3" style="color: var(--text-body);">📞 <strong style="color: var(--text-ivory);">Teléfono:</strong> +51 999 999 999</p>
+                    <p class="mb-3" style="color: var(--text-body);">✉️ <strong style="color: var(--text-ivory);">Correo:</strong> contacto@mazzellicueros.pe</p>
+                    <p class="mb-0" style="color: var(--text-body);">🕒 <strong style="color: var(--text-ivory);">Horario:</strong> Lunes a Sábado de 8:00 AM a 6:00 PM</p>
                 </div>
-                <div class="bg-brown text-white p-4 rounded shadow-sm text-center" style="background-color: #5c4033;">
-                    <h5 class="fw-bold mb-2">¿Atención Inmediata?</h5>
-                    <p class="small mb-3">Escríbenos directamente a nuestro canal de atención rápida por WhatsApp.</p>
-                    <a href="https://wa.me/51999999999" target="_blank" class="btn btn-warning fw-bold px-4">Abrir WhatsApp</a>
+
+                <div class="p-4 rounded shadow-lg text-center" style="background-color: var(--wine-solid); border: 1px solid var(--wine-vibrant);">
+                    <h4 class="fw-bold mb-2 text-white">¿Atención Inmediata?</h4>
+                    <p class="mb-3 text-white" style="font-size: 0.95rem; opacity: 0.95;">Comunícate en tiempo real con nuestro equipo comercial vía WhatsApp.</p>
+                    <a href="https://wa.me/51999999999" target="_blank" class="btn btn-light fw-bold px-4 py-2" style="color: var(--wine-solid);">Abrir WhatsApp</a>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer Unificado -->
-    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+    <!-- Footer -->
+    <footer class="pt-5 pb-4 mt-5">
         <div class="container">
             <div class="row gy-4 mb-4">
                 <div class="col-md-4 pe-md-5">
-                    <h5 class="fw-bold text-warning mb-3">MARZZELLI CUEROS</h5>
-                    <p class="text-light">Fabricantes directos de artículos de cuero genuino en el Parque Industrial de Villa El Salvador.</p>
+                    <h5 class="fw-bold mb-3 fs-4" style="color: var(--text-ivory);">Mazzelli Cueros</h5>
+                    <p style="color: var(--text-body); font-size: 0.95rem;">
+                        Fabricantes directos de carteras, mochilas, calzado, correas, billeteras, morrales y monederos en cuero genuino y materiales afines.
+                    </p>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="fw-bold mb-3 text-white">Accesos Directos</h5>
+                    <h5 class="fw-bold mb-3" style="color: var(--text-ivory);">Accesos Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Inicio</a></li>
-                        <li class="mb-2"><a href="nosotros.html" class="text-light text-decoration-none">Nosotros</a></li>
-                        <li class="mb-2"><a href="catalogo.html" class="text-light text-decoration-none">Catálogo</a></li>
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="nosotros.html" class="text-decoration-none">Nosotros</a></li>
+                        <li class="mb-2"><a href="catalogo.html" class="text-decoration-none">Catálogo</a></li>
+                        <li class="mb-2"><a href="contacto.html" class="text-decoration-none">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="fw-bold mb-3 text-white">Sede Central</h5>
-                    <ul class="list-unstyled text-light">
+                    <h5 class="fw-bold mb-3" style="color: var(--text-ivory);">Contacto Directo</h5>
+                    <ul class="list-unstyled" style="color: var(--text-body); font-size: 0.95rem;">
                         <li class="mb-2">📍 Parque Industrial, Villa El Salvador - Lima</li>
                         <li class="mb-2">📞 +51 999 999 999</li>
-                        <li class="mb-2">✉️ ventas@marzzelli.com.pe</li>
+                        <li class="mb-2">✉️ contacto@mazzellicueros.pe</li>
                     </ul>
                 </div>
             </div>
-            <div class="text-center border-top border-secondary pt-4 mt-4">
-                <p class="mb-0 text-light small">© 2026 Industrias Marzzelli - Perú Cueros E.I.R.L. Todos los derechos reservados.</p>
+            <div class="text-center pt-4 mt-4" style="border-top: 1px solid var(--border-subtle);">
+                <p class="mb-0 small" style="color: var(--text-muted);">© 2026 Mazzelli Cueros. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <a href="https://wa.me/51999999999" target="_blank" class="chat-btn">💬 Asesoría por WhatsApp</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -3,27 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo - Industrias Marzzelli</title>
+    <title>Catálogo - Mazzelli Cueros</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.15) !important; }
-        .chat-btn { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
-        .chat-btn:hover { transform: scale(1.05); color: white; }
+        :root {
+            --bg-carbon-1: #1E2024;
+            --bg-carbon-2: #282B30;
+            --bg-card: #32363D;
+            --bg-card-hover: #3B4048;
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --border-wine: rgba(200, 50, 68, 0.4);
+            
+            --text-ivory: #F5F3EF;
+            --text-body: #E5E7EB;
+            --text-muted: #9CA3AF;
+            
+            --wine-vibrant: #C83244;
+            --wine-solid: #9E2433;
+            --wine-dark: #8B1E2B;
+        }
+
+        body {
+            background-color: var(--bg-carbon-1);
+            color: var(--text-body);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, .font-serif, .navbar-brand {
+            font-family: 'Playfair Display', serif !important;
+            color: var(--text-ivory) !important;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: rgba(30, 32, 36, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .brand-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-ivory) !important;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .brand-accent {
+            color: var(--wine-vibrant) !important;
+        }
+        .nav-link {
+            color: var(--text-body) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--wine-vibrant) !important;
+        }
+
+        /* Badges & Accents */
+        .badge-wine {
+            background-color: var(--wine-solid);
+            color: #FFFFFF !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: 1px solid var(--wine-vibrant);
+            display: inline-block;
+        }
+
+        /* Editorial Cards */
+        .card-editorial {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .card-editorial:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+            border-color: var(--wine-vibrant);
+        }
+        .card-img-container {
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+        }
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .card-editorial:hover .card-img-container img {
+            transform: scale(1.06);
+        }
+        .card-editorial .card-body {
+            padding: 1.5rem;
+            color: var(--text-body) !important;
+        }
+
+        /* Buttons */
+        .btn-wine {
+            background-color: var(--wine-solid) !important;
+            color: #FFFFFF !important;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            border-radius: 4px;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-wine:hover {
+            background-color: var(--wine-dark) !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 6px 20px rgba(158, 36, 51, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Chat Button */
+        .chat-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--wine-solid);
+            color: #FFFFFF !important;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .chat-btn:hover {
+            background: var(--wine-dark);
+            transform: scale(1.05);
+            color: #FFFFFF !important;
+        }
+
+        footer {
+            background-color: #16181B;
+            border-top: 1px solid var(--border-subtle);
+        }
+        footer a {
+            color: var(--text-body) !important;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--wine-vibrant) !important;
+        }
     </style>
 </head>
-<body class="bg-light d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
 
-    <!-- Navegación unificada -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">MARZZELLI CUEROS</a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand brand-title" href="index.html">
+                Mazzelli <span class="brand-accent">Cueros</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto gap-3">
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="nosotros.html">Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link active fw-semibold" href="catalogo.html">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link fw-semibold" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="catalogo.html">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -32,112 +200,187 @@
     <!-- Contenido del Catálogo -->
     <main class="container py-5 my-auto">
         <div class="text-center mb-5">
-            <h6 class="text-warning fw-bold text-uppercase">Nuestra Oferta</h6>
-            <h1 class="fw-bold display-5" style="color: #5c4033;">Catálogo General de Productos</h1>
-            <p class="text-secondary lead">Conoce nuestra línea completa de artículos elaborados en auténtico cuero de res.</p>
+            <span class="badge-wine mb-2">Colección Completa</span>
+            <h1 class="fw-bold display-5" style="color: var(--text-ivory);">Catálogo de Artículos en Cuero y Afines</h1>
+            <p class="lead mx-auto fs-6" style="max-width: 750px; color: var(--text-body);">
+                Modelos exclusivos en carteras, mochilas, calzado, correas, billeteras, morrales y monederos confeccionados con acabados marroquineros de alta exigencia.
+            </p>
         </div>
 
         <div class="row g-4">
-            <!-- Producto 1 -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Casaca+Clasica+Biker" class="card-img-top" alt="Casaca Biker">
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title fw-bold">Casaca Biker de Cuero</h5>
-                        <p class="card-text text-secondary">Estilo clásico urbano con cierres metálicos reforzados y acabado napa.</p>
-                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+            <!-- Producto 1: Carteras -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/carteras.jpg" alt="Cartera Elegante en Cuero" onerror="this.src='https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Carteras</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Cartera Elegante Mazzelli</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Confeccionada en fino cuero vacuno con forro interior resistente, broches reforzados y amplios compartimentos.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
                     </div>
                 </div>
             </div>
-            <!-- Producto 2 -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Casaca+Ejecutiva" class="card-img-top" alt="Casaca Ejecutiva">
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title fw-bold">Casaca Ejecutiva Formal</h5>
-                        <p class="card-text text-secondary">Diseño sobrio y elegante ideal para caballeros con cuello camisero.</p>
-                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+
+            <!-- Producto 2: Mochilas -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/mochilas.jpg" alt="Mochila Ejecutiva de Cuero" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Mochilas</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Mochila Ejecutiva Urbano</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Mochila elaborada en cuero genuino y materiales afines con compartimento acolchado para laptop.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
                     </div>
                 </div>
             </div>
-            <!-- Producto 3 -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Botines+Seguridad" class="card-img-top" alt="Botines">
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title fw-bold">Botines de Seguridad Die Eléctricos</h5>
-                        <p class="card-text text-secondary">Calzado industrial con punta de acero certificado para minería e industria.</p>
-                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+
+            <!-- Producto 3: Calzado -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/calzado.jpg" alt="Calzado Fino en Cuero" onerror="this.src='https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Calzado</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Calzado & Botines de Cuero</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Calzado artesanal en cuero seleccionado con plantas ergonómicas de alta densidad para máximo confort.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
                     </div>
                 </div>
             </div>
-            <!-- Producto 4 -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Maletin+Ejecutivo" class="card-img-top" alt="Maletin">
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title fw-bold">Maletín Porta-Laptop</h5>
-                        <p class="card-text text-secondary">Maletín ejecutivo de cuero graneado con compartimentos internos acolchados.</p>
-                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+
+            <!-- Producto 4: Correas -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/correas.jpg" alt="Correas de Cuero Legitimo" onerror="this.src='https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Correas</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Correa Vacuna Reversible</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Correas de 100% cuero legítimo con hebilla zamak antioxidante de gran resistencia y durabilidad.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
                     </div>
                 </div>
             </div>
-            <!-- Producto 5 -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Billeteras+Piel" class="card-img-top" alt="Billeteras">
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title fw-bold">Billeteras con Tarjetero</h5>
-                        <p class="card-text text-secondary">Marroquinería fina con protección RFID y múltiples ranuras para tarjetas.</p>
-                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+
+            <!-- Producto 5: Billeteras -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/billeteras.jpg" alt="Billetera de Cuero Fino" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Billeteras</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Billetera Clásica de Piel</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Diseño delgado con múltiples compartimentos para tarjeteros, billetes y acabados extra finos.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
                     </div>
                 </div>
             </div>
-            <!-- Producto 6 -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm border-0 card-hover">
-                    <img src="https://placehold.co/400x300/5c4033/FFF?text=Correas+Reversibles" class="card-img-top" alt="Correas">
-                    <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title fw-bold">Correas de Cuero Genuino</h5>
-                        <p class="card-text text-secondary">Correas resistentes con hebilla de acero inoxidable de alta duración.</p>
-                        <a href="contacto.html" class="btn btn-outline-dark btn-sm fw-bold mt-auto">Cotizar Producto</a>
+
+            <!-- Producto 6: Morrales -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/morrales.jpg" alt="Morral Ejecutivo de Cuero" onerror="this.src='https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Morrales</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Morral & Bandolera de Piel</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Morral ergonómico cruzado con correa graduable y cierres metálicos de suavidad superior.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 7: Monederos -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/monederos.jpg" alt="Monedero en Cuero y Afines" onerror="this.src='https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Monederos</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Monedero Compacto Artesanal</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Monedero ligero y elegante confeccionado en suave cuero y materiales afines reforzados.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 8: Carteras Bandolera -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/cartera-bandolera.jpg" alt="Cartera Bandolera de Cuero" onerror="this.src='https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Carteras</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Cartera Bandolera Casual</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Diseño versátil y ligero ideal para el uso diario con acabado graneado antirrayaduras.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 9: Mochila de Viaje -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card-editorial h-100 d-flex flex-column">
+                    <div class="card-img-container">
+                        <img src="img/mochila-viaje.jpg" alt="Mochila de Viaje en Cuero" onerror="this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <span class="badge-wine me-auto mb-2" style="font-size: 0.65rem;">Mochilas</span>
+                        <h4 class="card-title fw-bold" style="color: var(--text-ivory);">Mochila de Viaje & Trabajo</h4>
+                        <p class="card-text mb-4" style="color: var(--text-body);">Mochila espaciosa con costuras dobles de alta tensión diseñada para soportar cargas exigentes.</p>
+                        <a href="contacto.html" class="btn-wine mt-auto w-100">Cotizar Producto</a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer Unificado -->
-    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+    <!-- Footer -->
+    <footer class="pt-5 pb-4 mt-5">
         <div class="container">
             <div class="row gy-4 mb-4">
                 <div class="col-md-4 pe-md-5">
-                    <h5 class="fw-bold text-warning mb-3">MARZZELLI CUEROS</h5>
-                    <p class="text-light">Fabricantes directos de artículos de cuero genuino en el Parque Industrial de Villa El Salvador.</p>
+                    <h5 class="fw-bold mb-3 fs-4" style="color: var(--text-ivory);">Mazzelli Cueros</h5>
+                    <p style="color: var(--text-body); font-size: 0.95rem;">
+                        Fabricantes de carteras, mochilas, calzado, correas, billeteras, morrales y monederos confeccionados en cuero genuino y materiales afines.
+                    </p>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="fw-bold mb-3 text-white">Accesos Directos</h5>
+                    <h5 class="fw-bold mb-3" style="color: var(--text-ivory);">Accesos Rápidos</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Inicio</a></li>
-                        <li class="mb-2"><a href="nosotros.html" class="text-light text-decoration-none">Nosotros</a></li>
-                        <li class="mb-2"><a href="catalogo.html" class="text-light text-decoration-none">Catálogo</a></li>
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                        <li class="mb-2"><a href="nosotros.html" class="text-decoration-none">Nosotros</a></li>
+                        <li class="mb-2"><a href="catalogo.html" class="text-decoration-none">Catálogo</a></li>
+                        <li class="mb-2"><a href="contacto.html" class="text-decoration-none">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="fw-bold mb-3 text-white">Sede Central</h5>
-                    <ul class="list-unstyled text-light">
+                    <h5 class="fw-bold mb-3" style="color: var(--text-ivory);">Contacto Directo</h5>
+                    <ul class="list-unstyled" style="color: var(--text-body); font-size: 0.95rem;">
                         <li class="mb-2">📍 Parque Industrial, Villa El Salvador - Lima</li>
                         <li class="mb-2">📞 +51 999 999 999</li>
-                        <li class="mb-2">✉️ ventas@marzzelli.com.pe</li>
+                        <li class="mb-2">✉️ contacto@mazzellicueros.pe</li>
                     </ul>
                 </div>
             </div>
-            <div class="text-center border-top border-secondary pt-4 mt-4">
-                <p class="mb-0 text-light small">© 2026 Industrias Marzzelli - Perú Cueros E.I.R.L. Todos los derechos reservados.</p>
+            <div class="text-center pt-4 mt-4" style="border-top: 1px solid var(--border-subtle);">
+                <p class="mb-0 small" style="color: var(--text-muted);">© 2026 Mazzelli Cueros. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <a href="https://wa.me/51999999999" target="_blank" class="chat-btn">💬 Asesoría por WhatsApp</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
